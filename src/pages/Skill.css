@@ -1,0 +1,30 @@
+/* Slide-in animation for entire grid */
+@keyframes slide-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide {
+    animation: slide-in 1s ease-in-out;
+  }
+  
+  /* Spin animation for each skill circle */
+  @keyframes spin {
+    0% { transform: rotate(20deg); }
+
+    100% { transform: rotate(360deg); }
+  }
+  
+  .skill-circle {
+    animation: fill 1.7s ease-in-out forwards;
+  }
+  
+  /* Fill animation for skill progress */
+  @keyframes fill {
+    0% {
+      background: conic-gradient(#aca9b3 0%, #172554 100%);
+    }
+    100% {
+      background: conic-gradient(#cf0e1e var(--level, 0), hsl(350, 94%, 47%) var(--level, 0) 100%);
+    }
+  }
+  

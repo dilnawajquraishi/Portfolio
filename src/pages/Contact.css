@@ -1,0 +1,114 @@
+.contact-page {
+  min-height: 100vh;
+}
+
+.neon-title {
+  animation: neon-flicker 1.5s ease-in-out infinite alternate;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 
+               0 0 15px #ff007f, 
+               0 0 30px #ff007f, 
+               0 0 40px #ff007f;
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neon-box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.whatsapp {
+  background-color: #128C7E;
+  border: 2px solid #25D366;
+  color: #ffffff;
+  animation: glow-pulse 2s infinite alternate;
+}
+
+.email {
+  background-color: #0077b5;
+  border: 2px solid #0a66c2;
+  color: #ffffff;
+  animation: glow-pulse 2s 0.5s infinite alternate;
+}
+
+.location {
+  background-color: #4b0082;
+  border: 2px solid #8a2be2;
+  color: #ffffff;
+  animation: glow-pulse 2s 1s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 30px rgba(255, 0, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7),
+                0 0 30px rgba(255, 0, 255, 0.9),
+                0 0 50px rgba(255, 0, 255, 1);
+  }
+}
+
+
+
+/* ----------------form----- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1 rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #444;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ff007f;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  color: #888;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+/* .form-group input:focus ~ label, */
+.form-group select:focus ~ label,
+.form-group input:valid ~ label,
+.form-group select:valid ~ label,
+.filled ~ label {
+  top: -14px;
+  left: 8px;
+  font-size: 0.85rem;
+  color: #ff007f;
+}
+
+.submit-button {
+  display: inline-block;
+  text-align: center;
+}

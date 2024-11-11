@@ -1,0 +1,82 @@
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    padding: 15px; /* Smaller padding */
+    margin: 15px 0;
+    border-radius: 12px; /* Slightly smaller rounded corners */
+    background: linear-gradient(145deg, #2c3e50, #34495e); /* Dark gradient */
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 80%; /* Reduced width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .timeline-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(255, 192, 203, 0.5); /* Softer glow effect */
+  }
+  
+  /* Glowing Circle Background */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px; /* Smaller circle */
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 180deg,
+      #ff6b6b, /* Soft pink */
+      #ff8e72, /* Coral */
+      #ffb677, /* Light orange */
+      #c679e3, /* Soft purple */
+      #ff6b6b
+    );
+    transform: translate(-50%, -50%) scale(1);
+    animation: gradientRotate 6s linear infinite;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  
+  /* Rotating Gradient Animation */
+  @keyframes gradientRotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+  }
+  
+  /* Header Styling */
+  .header {
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem; /* Slightly smaller */
+    color: #ff69b4;
+    text-shadow: 1px 1px 4px rgba(255, 105, 180, 0.4); /* Softer glow */
+  }
+  
+  .header p {
+    font-size: 1rem;
+    color: #dcdcdc; /* Softer text contrast */
+  }
+  
+  /* Section Titles */
+  .education-section h2,
+  .experience-section h2,
+  .certification-section h2 {
+    font-size: 1.6rem;
+    color: #ff69b4;
+    border-bottom: 2px solid #ff69b4;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  

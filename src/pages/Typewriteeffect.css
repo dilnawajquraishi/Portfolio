@@ -1,0 +1,29 @@
+/* Typewriter effect with sliding from the top */
+.typewriter h1, .typewriter span {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #00AEEF;
+    animation: slideIn 0.5s ease-in forwards, typing 3s steps(30, end) 0.5s infinite, blink-caret 0.5s step-end infinite;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Start slightly above */
+}
+
+/* Slide-in effect */
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(-20px); } /* Starting above */
+    100% { opacity: 1; transform: translateY(0); } /* Sliding to place */
+}
+
+/* Typing effect with reset */
+@keyframes typing {
+    0% { width: 0; }
+    70% { width: 100%; }
+    85% { width: 100%; }
+    100% { width: 0; }
+}
+
+/* Caret blinking animation */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #1800ef; }
+}
