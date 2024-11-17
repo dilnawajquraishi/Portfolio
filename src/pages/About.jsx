@@ -4,6 +4,8 @@ import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import './About.css';
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
+import aboutimg from '../pages/images/picDil.jpg'
+
 
 
 const About = () => {
@@ -27,7 +29,7 @@ const About = () => {
 
                 <p>A creative <span>Frontend Developer</span> passionate about modern web design.</p>
                 <motion.img
-                    src="your-image.jpg"
+                    src={aboutimg}
                     alt="John Doe"
                     className="profile-image"
                     whileHover={{ scale: 1.1 }}
