@@ -1,0 +1,120 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0d1117;
+    color: #e4e6eb;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Container */
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Intro Section */
+.intro-section {
+    margin-bottom: 3rem;
+}
+
+.highlight-text span {
+    color: #00e6e6;
+    font-weight: bold;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    border: 3px solid #00e6e6;
+}
+
+/* Skills Section */
+.skills-section {
+    margin: 3rem 0;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #00e6e6;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: #161b22;
+    color: #00e6e6;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Technology Stack */
+.tech-stack {
+    margin: 3rem 0;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.icon {
+    background-color: #161b22;
+    color: #00e6e6;
+    padding: 1rem 1.5rem;
+    border-radius: 50%;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Social Links */
+.cta-section {
+    margin-top: 3rem;
+}
+
+.social-links a {
+    color: #00e6e6;
+    margin: 0 1.5rem;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: scale(1.3);
+}

@@ -20,11 +20,12 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>} />
-      <Route path='/' element={<About/>} />
+      <Route path='/about' element={<About/>} />
       <Route path='/project' element={<Project/>} />
       <Route path='/skill' element={<Skill/>} />
       <Route path='/contact' element={<Contact/>} />
       <Route path='/education' element={<Education/>} />
+
 
 
 
