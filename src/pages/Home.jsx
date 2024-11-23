@@ -6,6 +6,8 @@ import { CgMail } from "react-icons/cg";
 import profileImage from '../pages/images/Profational_Pic.jpg';
 
 const Home = () => {
+
+  
   return (
     <div className="relative min-h-screen flex flex-col bg-black text-white">
       
