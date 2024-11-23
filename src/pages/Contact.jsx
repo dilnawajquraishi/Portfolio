@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Contact.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaGithub, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+import { FaWhatsapp } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { IoLocationOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 
+
 const Contact = () => {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +19,9 @@ const Contact = () => {
     address: ''
   });
 
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -27,21 +30,40 @@ const Contact = () => {
     navigate(-1);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+    setIsLoading(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('http://localhost:8080/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setMessage('Form submitted successfully!');
+      } else {
+        setMessage('Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="contact-page flex flex-col items-center bg-black text-white gap-8">
-   
-
-      <h1 className="text-6xl mb-8 text-red-400 neon-title mt-5 w-1/2  flex flex-row justify-between ml-96 ">Contact Us 
-      <RxCross2 onClick={handleBack} className="cursor-pointer close-button-icon hover:bg-red-600 text-red-700 mt-6 mr-3 text-2xl" />
-
+      <h1 className="text-6xl mb-8 text-red-400 neon-title mt-5 w-1/2 flex flex-row justify-between ml-96">
+        Contact Us 
+        <RxCross2 onClick={handleBack} className="cursor-pointer close-button-icon hover:bg-red-600 text-red-700 mt-6 mr-3 text-2xl" />
       </h1>
-         {/* Close Button */}
-      {/* <div className="close-button-container bg-red-800 ml-96 pt-10">
-        <RxCross2 onClick={handleBack} className="cursor-pointer close-button-icon" />
-      </div> */}
 
       <div className="contact-container flex w-full gap-32 justify-center items-start">
-        {/* Contact Icons */}
         <div className="contact-info space-y-12 mt-12">
           <div className="neon-box whatsapp flex items-center gap-3 p-8 rounded-lg transition-transform duration-300">
             <FaWhatsapp size={32} /> <span>7275995475</span>
@@ -54,8 +76,10 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <form className="contact-form w-1/2 p-8 bg-black rounded-lg shadow-xl transition-transform duration-500 hover:scale-105">
+        <form
+          className="contact-form w-1/2 p-8 bg-black rounded-lg shadow-xl transition-transform duration-500 hover:scale-105"
+          onSubmit={handleSubmit}
+        >
           {/* Form Fields */}
           <div className="form-group">
             <input
@@ -142,16 +166,13 @@ const Contact = () => {
           <button
             type="submit"
             className="submit-button bg-teal-500 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg mt-6 shadow-lg transition-transform duration-300 hover:scale-105"
+            disabled={isLoading}
           >
-            Submit
+            {isLoading ? 'Submitting...' : 'Submit'}
           </button>
+          {message && <p className="message mt-4">{message}</p>}
         </form>
       </div>
-
-      {/* Footer */}
-      <footer className="footer-container">
-        {/* Footer Links and Icons */}
-      </footer>
     </div>
   );
 };
